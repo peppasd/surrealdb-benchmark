@@ -2,6 +2,8 @@
 
 This directory contains the script that creates the database schema and fake data from Faker.js. The resulting file is used to seed the database.
 
+To use the same data used for the benchmark, you can use the `surrealdata.tar.gz` archive.
+
 ## Prerequisites
 
 - [Bun](https://bun.sh/docs/installation) (v1.0.25 at the time of writing)

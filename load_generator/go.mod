@@ -1,6 +1,6 @@
 module load_generator
 
-go 1.21.6
+go 1.18
 
 require (
 	gorm.io/driver/sqlite v1.5.4
