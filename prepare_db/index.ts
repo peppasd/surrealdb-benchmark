@@ -160,13 +160,4 @@ async function main() {
   writer.end();
 }
 
-function test() {
-  console.log(`{
-    "code": 400,
-    "details": "Request problems detected",
-    "description": "There is a problem with your request. Refer to the documentation for further information.",
-    "information": "There was a problem with the database: Parse error: Failed to parse query at line 11 column 63 expected query to end\n   |\n11 | ...name = 'O'Conner', email = 'Makenzie52@hotmail.com', country = 'Australia'...\n   |              ^ perhaps missing a semicolon on the previous statement?\n"
-  }`);
-}
-
 main();

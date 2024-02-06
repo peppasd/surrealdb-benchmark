@@ -10,6 +10,6 @@ cd surrealdb-benchmark/load_generator
 sudo go mod download
 sudo go build .
 sudo cp load_generator /usr/local/bin/lg
-sudo rm -rf surrealdb-benchmark
+sudo rm -rf surrealdb-benchmark/
 
 touch /done

@@ -9,7 +9,7 @@ This directory contains the deployment intructions for the benchmark
 
 ## Configure Terraform / GCP
 
-- Authenticate with gcloud using `gcloud init` and choose the target project for the deployment. For the region and zone, I chose `us-central1` and `us-central1-a` respectively. In case you change that, it has to also be reflected in the `main.tf` file and all the scripts.
+- Authenticate with gcloud using `gcloud init` and choose the target project for the deployment. For the region and zone, I chose `us-central1` and `us-central1-c` respectively. In case you change that, it has to also be reflected in the `main.tf` file and all the scripts.
 - Activate Application Default Credentials (ADC) using `gcloud auth application-default login`
 - In the `terraform` directory run `terraform init` to initialize the terraform project
 - In the `terraform` directory run `terraform apply` to deploy the infrastructure
@@ -36,7 +36,23 @@ bash run_benchmark.sh 20 3
 
 This will run the benchmark for 20 minutes for each phase using 3 threads.
 
-The script will run the benchmark and download the results. There have been cases that the download fails, in that case you can use the script `download_results.sh` to download the results manually.
+The script will run the benchmark in the background. If you want to see the logs, you can run the following command:
+
+```bash
+bash check_logs.sh
+```
+
+After the benchmark is finished, you can download the results using the following command:
+
+```bash
+bash download_results.sh
+```
+
+To remove the old logs, you can run the following command:
+
+```bash
+bash delete_logs.sh
+```
 
 ## Rerun the benchmark
 
