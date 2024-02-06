@@ -18,7 +18,7 @@ type Result struct {
 	CreatedAt                    time.Time `gorm:"autoCreateTime"`
 }
 
-const dbName = "results.sqlite"
+const dbName = "~/results.sqlite"
 
 var db *gorm.DB
 

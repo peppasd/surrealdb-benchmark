@@ -1,12 +1,14 @@
+#Autostart services https://askubuntu.com/questions/1367139/apt-get-upgrade-auto-restart-services
 export DEBIAN_FRONTEND=noninteractive
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y -q git
 sudo apt install -y -q golang-go
 
-cd ~/
-git clone https://github.com/peppasd/surrealdb-benchmark.git
+sudo git clone https://github.com/peppasd/surrealdb-benchmark.git
 cd surrealdb-benchmark/load_generator
-go mod download
-go build .
-cp load_generator ../../load_generator
+sudo go mod download
+sudo go build .
+sudo cp load_generator /usr/local/bin/lg
+
+touch /done
