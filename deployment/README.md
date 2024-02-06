@@ -36,22 +36,10 @@ bash run_benchmark.sh 20 3
 
 This will run the benchmark for 20 minutes for each phase using 3 threads.
 
-The script will run the benchmark in the background. If you want to see the logs, you can run the following command:
-
-```bash
-bash check_logs.sh
-```
-
-After the benchmark is finished, you can download the results using the following command:
+After the benchmark is finished (check the logs), you can download the results using the following command:
 
 ```bash
 bash download_results.sh
-```
-
-To remove the old logs, you can run the following command:
-
-```bash
-bash delete_logs.sh
 ```
 
 ## Rerun the benchmark

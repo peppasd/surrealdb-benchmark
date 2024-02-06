@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"log"
-	"os"
 	"time"
 )
 
@@ -27,17 +26,9 @@ func main() {
 	url = "http://" + *flagUrl
 	wsUrl = "ws://" + *flagUrl + "/rpc"
 
-	// log to file
-	f, err := os.OpenFile("logs", os.O_APPEND|os.O_CREATE|os.O_RDWR, 0666)
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
-	log.SetOutput(f)
-
 	log.Printf("Starting benchmark with phase duration %v and %v threads per phase on %s", benchmarkDuration, benchmarkWorkers, url)
 
-	err = runHealthcheck()
+	err := runHealthcheck()
 	if err != nil {
 		log.Fatalf("Healthcheck failed: %v", err)
 	}
