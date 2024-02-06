@@ -1,4 +1,4 @@
-cmd="surreal start --allow-net file://surreal.db";
+cmd="sudo surreal start file://surreal.db";
 
 export DEBIAN_FRONTEND=noninteractive
 sudo apt update
