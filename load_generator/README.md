@@ -21,8 +21,14 @@ go mod download
 go build .
 ```
 
-- Run the load generator
+- Check the available options
 
 ```bash
-./load_generator
+./load_generator -help
+```
+
+Here is an example on how to run the load generator locally:
+
+```bash
+./load_generator -minutes 20 -threads 3 -url localhost:8000
 ```

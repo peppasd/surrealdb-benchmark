@@ -28,7 +28,7 @@ The flag `--output` specifies the path and name of the output file.
 - Start the database
 
 ```bash
-surreal start --allow-net file://surreal.db
+surreal start file://surreal.db
 ```
 
 - Generate the required seed data using the script in this directory
