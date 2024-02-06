@@ -10,5 +10,5 @@ echo "SUT internal IP is" $sut_ip
 cmd="lg -minutes $minutes -threads $threads -url $sut_ip:8000"
 
 echo "Running benchmark with command: $cmd"
-gcloud compute ssh load-generator --zone us-central1-c -- $cmd
+gcloud compute ssh load-generator --ssh-flag="-ServerAliveInterval=300" --zone us-central1-c -- $cmd
 echo "Benchmark finished"

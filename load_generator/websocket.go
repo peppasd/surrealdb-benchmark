@@ -284,7 +284,7 @@ func websocketSelect(ws *websocket.Conn, msgId int) (int, error) {
 }
 
 func websocketSimpleQuery(ws *websocket.Conn, msgId int) (int, error) {
-	query := `SELECT * FROM order WHERE processed IS FALSE`
+	query := `SELECT * FROM order WHERE processed IS FALSE LIMIT 1000`
 	resp, err := wsSendMessage(ws, msgId, query)
 	if err != nil {
 		return 0, err
@@ -297,7 +297,7 @@ func websocketSimpleQuery(ws *websocket.Conn, msgId int) (int, error) {
 }
 
 func websocketJoinRelation(ws *websocket.Conn, msgId int) (int, error) {
-	query := `SELECT books.title FROM order WHERE processed IS TRUE`
+	query := `SELECT books.title FROM order WHERE processed IS TRUE LIMIT 1000`
 	resp, err := wsSendMessage(ws, msgId, query)
 	if err != nil {
 		return 0, err
@@ -310,7 +310,7 @@ func websocketJoinRelation(ws *websocket.Conn, msgId int) (int, error) {
 }
 
 func websocketJoinGraph(ws *websocket.Conn, msgId int) (int, error) {
-	query := `SELECT <-ordered<-customer.first_name FROM order WHERE processed IS TRUE`
+	query := `SELECT <-ordered<-customer.first_name FROM order WHERE processed IS TRUE LIMIT 1000`
 	resp, err := wsSendMessage(ws, msgId, query)
 	if err != nil {
 		return 0, err

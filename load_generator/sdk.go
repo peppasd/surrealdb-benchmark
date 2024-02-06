@@ -236,7 +236,7 @@ func sdkSelect(db *surrealdb.DB) (int, error) {
 }
 
 func sdkSimpleQuery(db *surrealdb.DB) (int, error) {
-	query := `SELECT * FROM order WHERE processed IS FALSE`
+	query := `SELECT * FROM order WHERE processed IS FALSE LIMIT 1000`
 	data, err := db.Query(query, nil)
 	if err != nil {
 		return 0, err
@@ -251,7 +251,7 @@ func sdkSimpleQuery(db *surrealdb.DB) (int, error) {
 }
 
 func sdkJoinRelation(db *surrealdb.DB) (int, error) {
-	query := `SELECT books.title FROM order WHERE processed IS TRUE`
+	query := `SELECT books.title FROM order WHERE processed IS TRUE LIMIT 1000`
 	data, err := db.Query(query, nil)
 	if err != nil {
 		return 0, err
@@ -266,7 +266,7 @@ func sdkJoinRelation(db *surrealdb.DB) (int, error) {
 }
 
 func sdkJoinGraph(db *surrealdb.DB) (int, error) {
-	query := `SELECT <-ordered<-customer.first_name FROM order WHERE processed IS TRUE`
+	query := `SELECT <-ordered<-customer.first_name FROM order WHERE processed IS TRUE LIMIT 1000`
 	data, err := db.Query(query, nil)
 	if err != nil {
 		return 0, err

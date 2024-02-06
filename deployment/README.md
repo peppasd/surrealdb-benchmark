@@ -34,9 +34,9 @@ Where `<minutes_per_phase>` is the number of minutes you want to run the benchma
 bash run_benchmark.sh 20 3
 ```
 
-This will run the benchmark for 20 minutes for each phase using 3 threads.
+This will run the benchmark for 20 minutes for each phase (1 hour in total) using 3 threads.
 
-After the benchmark is finished (check the logs), you can download the results using the following command:
+After the benchmark is finished, you can download the results using the following command:
 
 ```bash
 bash download_results.sh

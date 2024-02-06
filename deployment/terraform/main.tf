@@ -33,21 +33,17 @@ resource "google_compute_firewall" "all" {
 ### SUT INSTANCE
 resource "google_compute_instance" "sut" {
   name         = "surrealdb"
-  machine_type = "n2d-standard-2"
+  machine_type = "n2d-standard-4"
 
   boot_disk {
     initialize_params {
-      size  = 20
+      size  = 30
       type  = "pd-ssd"
       image = "ubuntu-2204-jammy-v20240126"
     }
   }
 
   metadata_startup_script = file("startup_sut.sh")
-
-  scratch_disk {
-    interface = "NVME"
-  }
 
   network_interface {
     network = google_compute_network.vpc_network.id
@@ -63,17 +59,13 @@ resource "google_compute_instance" "lg" {
 
   boot_disk {
     initialize_params {
-      size  = 20
+      size  = 30
       type  = "pd-ssd"
       image = "ubuntu-2204-jammy-v20240126"
     }
   }
 
   metadata_startup_script = file("startup_lg.sh")
-
-  scratch_disk {
-    interface = "NVME"
-  }
 
   network_interface {
     network = google_compute_network.vpc_network.id

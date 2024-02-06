@@ -230,7 +230,7 @@ func restSelect() (int, error) {
 }
 
 func restSimpleQuery() (int, error) {
-	var body = strings.NewReader(`SELECT * FROM order WHERE processed IS FALSE`)
+	var body = strings.NewReader(`SELECT * FROM order WHERE processed IS FALSE LIMIT 1000`)
 	resp, err := doRequest("POST", "/sql", body)
 	if err != nil {
 		return 0, err
@@ -243,7 +243,7 @@ func restSimpleQuery() (int, error) {
 }
 
 func restJoinRelation() (int, error) {
-	var body = strings.NewReader(`SELECT books.title FROM order WHERE processed IS TRUE`)
+	var body = strings.NewReader(`SELECT books.title FROM order WHERE processed IS TRUE LIMIT 1000`)
 	resp, err := doRequest("POST", "/sql", body)
 	if err != nil {
 		return 0, err
@@ -256,7 +256,7 @@ func restJoinRelation() (int, error) {
 }
 
 func restJoinGraph() (int, error) {
-	var body = strings.NewReader(`SELECT <-ordered<-customer.first_name FROM order WHERE processed IS TRUE`)
+	var body = strings.NewReader(`SELECT <-ordered<-customer.first_name FROM order WHERE processed IS TRUE LIMIT 1000`)
 	resp, err := doRequest("POST", "/sql", body)
 	if err != nil {
 		return 0, err
